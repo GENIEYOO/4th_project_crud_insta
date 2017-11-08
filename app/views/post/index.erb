@@ -1,0 +1,24 @@
+<h1>Welcome to fake instagram</h1>
+<form action = "/post/create">
+  <div class="form-group">
+    <label for="exampleInputEmail1">제목</label>
+    <input type="text" name = "title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="제목을 입력해 주세요">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">내용</label>
+    <input type="text" name = "content" class="form-control" id="exampleInputPassword1" placeholder="내용을 입력해 주세요">
+  </div>
+  <button type="submit" class="btn btn-primary">글쓰기</button>
+</form>
+<div class="card">
+    <% @posts.each do |post| %>
+    <div class="card-body">
+    <%= post.id%>번째 글<br>
+    제목 : <%= post.title %><br>
+    내용 : <%= post.content %> 
+    <a href="/post/show/<%= post.id %>">[더보기]</a>
+    <a href="/post/modify/<%= post.id %>">[수정]</a>
+    <a href="/post/destroy/<%= post.id %>">[X]</a><br>
+    </div>
+    <% end %>
+</div>
